@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Joe's Blogs</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/index/index.css">
+		<link rel="stylesheet" href="css/index/blog.css" />
+		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+		<script src="js/materialize.min.js"></script>
+	</head>
+
+	<body>
+		<div>
+			<ul id="sidemenu" class="side-nav fixed center show-on-large fillheight">
+				<div id="menu" style="margin-top: 50%;">
+					<img src="imgs/headimg.jpg" class="navheaderimg circle" />
+					<p style="margin-bottom: 30px;">WelCome to Joe's Page</p>
+					<li><a class="menuItem waves-effect waves-light" href="calendar.html">活动日历</a></li>
+					<li><a id="activeItem" href="blogs.html" class="menuItem waves-effect waves-light">Blog</a></li>
+					<li><a href="comments.html" class="menuItem waves-effect waves-light">留言</a></li>
+					<li><a href="about.html" class="menuItem waves-effect waves-light">关于</a></li>
+				</div>
+			</ul>
+
+			<main style="padding-top: 20px;">
+				<div id="header">
+					<div class="row valign-wrapper">
+						<span class="col s12 m2 l2 center" style="margin-left: 0;">
+							<img src="imgs/headimg.jpg" data-activates="sidemenu" class="headerimg circle button-collapse  hide-on-large-only">
+						</span>
+						<h5 id="tabtitle" class="col s12 m6 l6">Blogs</h5>
+					</div>
+				</div>
+
+				<div id="webContent" class="transparent center-block">
+					<ul class="collapsible popout" data-collapsible="expandable">
+						<li>
+							<div class="collapsible-header"><i class="material-icons">list</i>栏目1</div>
+							<div class="collapsible-body white">
+								<div class="left-align valign-wrapper blog-item">
+									<i class="material-icons" style="margin-right: 40px;">description</i><a class="blog-article fillwidth" href="#!">Article 1</a>
+								</div>
+								<div class="left-align valign-wrapper blog-item">
+									<i class="material-icons" style="margin-right: 40px;">description</i><a class="blog-article fillwidth" href="#!">Article 2</a>
+								</div>
+								<div class="left-align valign-wrapper blog-item">
+									<i class="material-icons" style="margin-right: 40px;">description</i><a class="blog-article fillwidth" href="#!">Article 3</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header"><i class="material-icons">list</i>栏目2</div>
+							<div class="collapsible-body white">
+								<div class="left-align valign-wrapper blog-item">
+									<i class="material-icons" style="margin-right: 40px;">description</i><a class="blog-article fillwidth" href="#!">Article 1</a>
+								</div>
+								<div class="left-align valign-wrapper blog-item">
+									<i class="material-icons" style="margin-right: 40px;">description</i><a class="blog-article fillwidth" href="#!">Article 2</a>
+								</div>
+								<div class="left-align valign-wrapper blog-item">
+									<i class="material-icons" style="margin-right: 40px;">description</i><a class="blog-article fillwidth" href="#!">Article 3</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header"><i class="material-icons">list</i>栏目3</div>
+							<div class="collapsible-body white">
+								<div class="left-align valign-wrapper blog-item">
+									<i class="material-icons" style="margin-right: 40px;">description</i><a class="blog-article fillwidth" href="#!">Article 1</a>
+								</div>
+								<div class="left-align valign-wrapper blog-item">
+									<i class="material-icons" style="margin-right: 40px;">description</i><a class="blog-article fillwidth" href="#!">Article 2</a>
+								</div>
+								<div class="left-align valign-wrapper blog-item">
+									<i class="material-icons" style="margin-right: 40px;">description</i><a class="blog-article fillwidth" href="#!">Article 3</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</main>
+			<div id="article-detail" class="fillwidth fillheight article-detail-hidden">
+				<div class="fillheight left" id="article-content">
+					<i class="small mdi-navigation-arrow-back white-text fixed" style="cursor:pointer;"></i>
+					<div class="fillheight" style="overflow: auto;">
+						<h1 class="white-text">this is title</h1>
+						<p class="white-text">this is content</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.button-collapse').sideNav()
+			$('.collapsible').collapsible({
+				accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+			});
+			$('.blog-item').click(function() {
+				$('#article-detail').removeClass("article-detail-hidden").addClass("article-detail-show");
+			})
+			$('.mdi-navigation-arrow-back').click(function() {
+				$('#article-detail').removeClass("article-detail-show").addClass("article-detail-hidden");
+			})
+		})
+	</script>
+
+</html>

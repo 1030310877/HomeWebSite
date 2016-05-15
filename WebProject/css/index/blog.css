@@ -1,0 +1,61 @@
+.blog-item {
+	border-bottom: 1px solid gainsboro;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 40px;
+}
+
+.blog-article {
+	color: darkgray;
+}
+
+#article-detail {
+	top: 0;
+	position: fixed;
+	background: transparent;
+}
+
+#article-content {
+	width: 100%;
+	background: rgba(0, 0, 0, 0.9);
+	margin-left: 240px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 10px；
+}
+
+@media only screen and (max-width: 992px) {
+	#article-content {
+		width: 100%;
+		background: rgba(0, 0, 0, 0.9);
+		margin-left: 0px;
+		padding-left: 30px;
+		padding-right: 30px;
+		padding-top: 10px;
+	}
+}
+
+.article-detail-hidden {
+	top: 0;
+	left: 100%;
+	transition-property: all;
+	-moz-transition-property: all;
+	-ms-transition-property: all;
+	-webkit-transition-property: all;
+	transition-duration: 0.6s;
+	-moz-transition-duration: 0.6s;
+	-ms-transition-duration: 0.6s;
+	-webkit-transition-duration: 0.6s;
+}
+
+.article-detail-show {
+	left: 0;
+	transition-property: all;
+	-moz-transition-property: all;
+	-ms-transition-property: all;
+	-webkit-transition-property: all;
+	transition-duration: 0.6s;
+	-moz-transition-duration: 0.6s;
+	-ms-transition-duration: 0.6s;
+	-webkit-transition-duration: 0.6s;
+}

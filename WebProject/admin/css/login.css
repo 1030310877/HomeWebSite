@@ -1,0 +1,7 @@
+.loginBg {
+	position: absolute;
+	left: 0;
+	top: 25%;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.9);
+}
