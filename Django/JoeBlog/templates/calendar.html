@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/index/index.css">
+    <link rel="stylesheet" href="css/index/calendar.css"/>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/jquery.calendar.js"></script>
+</head>
+
+<body>
+<div>
+    <ul id="sidemenu" class="side-nav fixed center show-on-large fillheight">
+        <div id="menu" style="margin-top: 50%;">
+            <img src="imgs/headimg.jpg" class="navheaderimg circle"/>
+            <p style="margin-bottom: 30px;">WelCome to Joe's Page</p>
+            <li><a id="activeItem" class="menuItem waves-effect waves-light" href="calendar.html">活动日历</a></li>
+            <li><a href="blogs.html" class="menuItem waves-effect waves-light">Blog</a></li>
+            <li><a href="comments.html" class="menuItem waves-effect waves-light">留言</a></li>
+            <li><a href="about.html" class="menuItem waves-effect waves-light">关于</a></li>
+        </div>
+    </ul>
+
+    <main style="padding-top: 20px;">
+        <div id="header">
+            <div class="row valign-wrapper">
+						<span class="col s12 m2 l2 center" style="margin-left: 0;">
+							<img src="imgs/headimg.jpg" data-activates="sidemenu"
+                                 class="headerimg circle button-collapse  hide-on-large-only">
+						</span>
+                <h5 id="tabtitle" class="col s12 m6 l6">活动日历</h5>
+            </div>
+        </div>
+        <div id="webContent" class="transparent center-block"></div>
+    </main>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".button-collapse").sideNav();
+        $('#webContent').genCalendar();
+    })
+</script>
+
+</html>

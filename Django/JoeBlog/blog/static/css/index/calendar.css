@@ -1,0 +1,94 @@
+table {
+	margin: 0 auto;
+	width: 60%;
+}
+
+td {
+	text-align: center;
+	color: white;
+	font-size: 30px;
+}
+
+th {
+	text-align: center;
+	color: white;
+	font-size: 35px;
+}
+
+td:hover {
+	transition: .3s transform;
+	transform: scale(1.2);
+}
+
+.month-container {
+	border-right: solid 1px;
+	border-right-color: gainsboro;
+}
+
+.month {}
+
+#years {
+	font-size: 35px;
+	color: #00e5ff;
+}
+
+.months {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.month-unchecked {
+	font-size: 28px;
+	color: #bfebf2;
+	-webkit-font-smoothing: antialiased;
+}
+
+.month-checked {
+	font-size: 45px;
+	color: #00BFA5;
+	-webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (max-width: 992px) {
+	table {
+		margin: 0 auto;
+		width: 40%;
+	}
+	td {
+		text-align: center;
+		color: white;
+		font-size: 8px;
+	}
+	th {
+		text-align: center;
+		color: white;
+		font-size: 12px;
+	}
+	td:hover {
+		transition: .3s transform;
+		transform: scale(1.2);
+	}
+	.month-container {
+		border-right: solid 1px;
+		border-right-color: gainsboro;
+	}
+	.month {}
+	#years {
+		font-size: 13px;
+		color: #00e5ff;
+	}
+	.months {
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+	.month-unchecked {
+		font-size: 8px;
+		color: #bfebf2;
+		-webkit-font-smoothing: antialiased;
+	}
+	.month-checked {
+		font-size: 15px;
+		color: #00BFA5;
+		-webkit-font-smoothing: antialiased;
+	}
+}

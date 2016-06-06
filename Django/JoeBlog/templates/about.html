@@ -1,0 +1,108 @@
+{#{% load staticfiles %}#}
+{#<!DOCTYPE html>#}
+{#<html>#}
+{##}
+{#<head>#}
+{#    <meta charset="utf-8">#}
+{#    <title>About Joe</title>#}
+{#    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">#}
+{#    <!--Import materialize.css-->#}
+{#    <link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}" media="screen,projection"/>#}
+{#    <!--Let browser know website is optimized for mobile-->#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>#}
+{#    <link rel="stylesheet" href="{% static "css/index/index.css" %}">#}
+{#    <link rel="stylesheet" href="{% static "css/index/about.css" %}">#}
+{#    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>#}
+{#    <script src="{% static  "js/materialize.min.js" %}"></script>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<div>#}
+{#    <ul id="sidemenu" class="side-nav fixed center show-on-large fillheight">#}
+{#        <div id="menu" style="margin-top: 50%;">#}
+{#            <img src="{% static "imgs/headimg.jpg" %}" class="navheaderimg circle"/>#}
+{#            <p style="margin-bottom: 30px;">WelCome to Joe's Page</p>#}
+{#            <li><a href="calendar.html" class="menuItem waves-effect waves-light">活动日历</a></li>#}
+{#            <li><a href="blogs.html" class="menuItem waves-effect waves-light">Blog</a></li>#}
+{#            <li><a href="comments.html" class="menuItem waves-effect waves-light">留言</a></li>#}
+{#            <li><a id="activeItem" href="about.html" class="menuItem waves-effect waves-light">关于</a></li>#}
+{#        </div>#}
+{#    </ul>#}
+{##}
+{#    <main style="padding-top: 20px;">#}
+{#        <div id="header">#}
+{#            <div class="row valign-wrapper">#}
+{#						<span class="col s12 m2 l2 center" style="margin-left: 0;">#}
+{#							<img src="{% static "imgs/headimg.jpg" %}" data-activates="sidemenu"#}
+{#                                 class="headerimg circle button-collapse  hide-on-large-only">#}
+{#						</span>#}
+{#                <h5 id="tabtitle" class="col s12 m6 l6">关于我</h5>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div id="webContent" class="transparent center-block center">#}
+{#            <div class="card bscard">#}
+{#                <div class="card-image waves-effect waves-block waves-light activator">#}
+{#                    <a href="https://github.com/1030310877">#}
+{#                        <img src="{% static "imgs/GitHub-light.png" %}"#}
+{#                             style="width: auto;margin-left: auto;margin-right: auto;margin-top: 10px;"/>#}
+{#                    </a>#}
+{#                    <h4 class="white-text activator">Android Developer</h4>#}
+{#                </div>#}
+{#                <div class="card-content">#}
+{#							<span class="card-title activator white-text">Joe Chan#}
+{#								<i class="mdi-navigation-more-vert right"></i>#}
+{#							</span>#}
+{#                </div>#}
+{#                <div class="card-reveal">#}
+{#                    <span class="card-title grey-text text-darken-4">&nbsp;&nbsp;Joe Chan<i#}
+{#                            class="mdi-navigation-close right"></i></span>#}
+{#                    <p>Weibo:@木讷的提线木偶</p>#}
+{#                    <p>QQ:1030310877、1787678994</p>#}
+{#                    <p>Email:1030310877@qq.com、1787678994@qq.com</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </main>#}
+{#</div>#}
+{#</body>#}
+{##}
+{#<script type="text/javascript ">#}
+{#    $(document).ready(function () {#}
+{#        $('.button-collapse').sideNav()#}
+{#    })#}
+{#</script>#}
+{##}
+{#</html>#}
+
+
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block staticFile %}
+    <link rel="stylesheet" href="{% static "css/index/about.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="card bscard center">
+        <div class="card-image waves-effect waves-block waves-light activator">
+            <a href="https://github.com/1030310877">
+                <img src="{% static "imgs/GitHub-light.png" %}"
+                     style="width: auto;margin-left: auto;margin-right: auto;margin-top: 10px;"/>
+            </a>
+            <h4 class="white-text activator">Android Developer</h4>
+        </div>
+        <div class="card-content">
+            <span class="card-title activator white-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Joe Chan
+				<i class="mdi-navigation-more-vert right"></i>
+			</span>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">&nbsp;&nbsp;Joe Chan
+                <i class="mdi-navigation-close right"></i>
+            </span>
+            <p>Weibo:@木讷的提线木偶</p>
+            <p>QQ:1030310877、1787678994</p>
+            <p>Email:1030310877@qq.com、1787678994@qq.com</p>
+        </div>
+    </div>
+{% endblock %}

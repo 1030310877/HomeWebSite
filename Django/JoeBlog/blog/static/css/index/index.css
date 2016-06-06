@@ -1,0 +1,82 @@
+body {
+	background-color: deepskyblue;
+}
+
+#header {
+	height: auto;
+	margin-top: 10px;
+}
+
+.navheaderimg {
+	width: 30%
+}
+
+.headerimg {
+	width: 60%;
+}
+
+#webContent {
+	width: 90%;
+	margin-top: 40px;
+}
+
+.fillheight {
+	height: 100%;
+}
+
+.fillwidth {
+	width: 100%;
+}
+
+#tabtitle {
+	color: white;
+	font-size: 30px;
+	margin-left: 0;
+}
+
+#searchImg {
+	background-color: lightseagreen;
+	padding: 8px;
+	color: white;
+}
+
+#searchInput {
+	color: white;
+}
+
+#sidemenu {
+	background: rgba(0, 0, 0, 0.6);
+}
+
+#sidemenu p {
+	color: white;
+}
+
+#sidemenu li a {
+	color: grey;
+}
+
+#sidemenu li a:active {
+	color: white
+}
+
+#sidemenu #activeItem {
+	color: white
+}
+
+#sidemenu li:hover {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+main {
+	padding-left: 240px;
+}
+
+@media only screen and (max-width: 992px) {
+	main {
+		padding-left: 0;
+	}
+	.headerimg {
+		width: 40%;
+	}
+}
