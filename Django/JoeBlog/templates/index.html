@@ -49,7 +49,7 @@
         <div id="header">
             <div class="row valign-wrapper">
 						<span class="col s12 m2 l2 center" style="margin-left: 0;">
-							<img src="imgs/headimg.jpg" data-activates="sidemenu"
+							<img src="{% static "imgs/headimg.jpg" %}" data-activates="sidemenu"
                                  class="headerimg circle button-collapse  hide-on-large-only">
 						</span>
                 <h5 id="tabtitle" class="col s12 m6 l6">
@@ -64,15 +64,18 @@
             {% endblock %}
         </div>
     </main>
+    {% block others %}
+
+    {% endblock %}
 </div>
 </body>
 
-<script type="text/javascript">
-    {% block javascript %}
+{% block javascript %}
+    <script type="text/javascript">
         $(document).ready(function () {
             $('.button-collapse').sideNav();
         })
-    {% endblock %}
-</script>
+    </script>
+{% endblock %}
 
 </html>

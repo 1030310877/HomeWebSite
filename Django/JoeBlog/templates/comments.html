@@ -125,41 +125,31 @@
 {% load staticfiles %}
 
 {% block content %}
-    <div class="card-panel fillwidth">
-        <div class="row">
-            <div class="col s12 m2 l2">
-                <i class="material-icons large fillwidth center">account_circle</i>
-                <div class="center">NAME</div>
-            </div>
-            <div class="col s12 m10 l10">
-                <div>
-                    <h5>2015-4-2</h5>
-                    <p>this is comments</p>
+    {% for comment in comments %}
+        <div class="card-panel fillwidth">
+            <div class="row">
+                <div class="col s12 m2 l2">
+                    <i class="material-icons large fillwidth center">account_circle</i>
+                    <div class="center">{{ comment.name }}</div>
+                </div>
+                <div class="col s12 m10 l10">
+                    <div>
+                        <h5>{{ comment.date }}</h5>
+                        <p>{{ comment.message }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="card-panel fillwidth">
-        <div class="row">
-            <div class="col s12 m2 l2">
-                <i class="material-icons large fillwidth center">account_circle</i>
-                <div class="center">NAME</div>
-            </div>
-            <div class="col s12 m10 l10">
-                <div>
-                    <h5>2015-4-2</h5>
-                    <p>this is comments</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
     <ul class="pagination center">
         <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
-        <li class="active"><a href="#!">1</a></li>
-        <li class="waves-effect"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
+        {% for page in pages %}
+            {% if page == nowpage %}
+                <li class="active"><a href="#!">{{ forloop.counter }}</a></li>
+            {% else %}
+                <li class="waves-effect"><a href="#!">{{ forloop.counter }}</a></li>
+            {% endif %}
+        {% endfor %}
         <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
     </ul>
 
@@ -194,8 +184,10 @@
 {% endblock %}
 
 {% block javascript %}
-    $(document).ready(function () {
-    $('.button-collapse').sideNav();
-    $('.modal-trigger').leanModal();
-    })
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.button-collapse').sideNav();
+            $('.modal-trigger').leanModal();
+        })
+    </script>
 {% endblock %}
