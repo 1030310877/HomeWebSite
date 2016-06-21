@@ -32,13 +32,14 @@
 			$('ul.tabs').tabs();
 			$('#tab1').click(function() {
 				$("#tab_content").load("blogs.html", function() {
-					$('.collapsible').collapsible({
-						accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-					});
+					jQuery.getScript("js/admin_blog.js")
 				});
 			});
 			$('#tab2').click(function() {
 				$("#tab_content").load("comments.html");
+			});
+			$("#tab_content").load("blogs.html", function() {
+				jQuery.getScript("js/admin_blog.js")
 			});
 		});
 	</script>
