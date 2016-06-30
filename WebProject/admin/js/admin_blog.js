@@ -33,7 +33,7 @@ $('.edit-column').click(function() {
 	event.stopPropagation();
 });
 
-$(".delete_column").click(function() {
+$('.delete_column').click(function() {
 	var num = $(this).data("column_id");
 	var columnId = "#column" + num;
 	var content = "删除" + $(columnId).text() + "，该栏目的文章也将一同删除，是否确认？"
@@ -79,3 +79,16 @@ function dialog_show(title, content, btn1, btn2) {
 	$("#dialog_btn1").text(btn1);
 	$("#dialog_btn2").text(btn2);
 };
+
+$('#add_column').click(function() {
+	$("#column_add_save").unbind("click");
+	$("#dialog_add_column").openModal({
+		complete: function() {
+			$('.lean-overlay').remove();
+		}
+	});
+	$('#dialog_input').focus();
+	$("#column_add_save").click(function() {
+		Materialize.toast("添加成功", 2000);
+	});
+})

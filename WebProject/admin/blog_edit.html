@@ -78,6 +78,9 @@
 
 	<body>
 		<div class="row container" style="margin-top: 20px;">
+			<div class="col s12 m12 l12">
+				<i id="back" class="small mdi-navigation-arrow-back fixed" style="cursor:pointer;"></i>
+			</div>
 			<div class="col s12 m3 l3 input-field">
 				<select>
 					<option value="" disabled selected>Choose your option</option>
@@ -91,23 +94,49 @@
 				<input placeholder="请输入标题" name="blog_title" type="text">
 				<label>标题</label>
 			</div>
+
 			<div class="col s12 m12 l12 input-field">
-				<textarea id="edit" class="materialize-textarea"></textarea>
+				<textarea id="edit" name="blog_content" class="materialize-textarea"></textarea>
 			</div>
 
-			<a class="col s12 m12 l12 waves-effect waves-light btn" style="margin-top: 10px;">保存</a>
+			<a id="save" class="col s12 m12 l12 waves-effect waves-light btn" style="margin-top: 20px;">保存</a>
 		</div>
-		<!-- Initialize the editor. -->
-		<script>
-			$(document).ready(function() {
-				$('select').material_select();
-			});
-			$(function() {
-				$('#edit').froalaEditor({
-					tabSpaces: 4
-				})
-			});
-		</script>
+
+		<div id="dialog" class="modal">
+			<div class="modal-content">
+				<h4 id="dialog_title">提示</h4>
+				<p id="dialog_content">是否保存当前文章？</p>
+			</div>
+			<div class="modal-footer">
+				<a id="dialog_btn1" class=" modal-action modal-close waves-effect waves-red btn-flat">保存</a>
+				<a id="dialog_btn2" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+			</div>
+		</div>
 	</body>
+	<!-- Initialize the editor. -->
+	<script>
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+		$(function() {
+			$('#edit').froalaEditor({
+				tabSpaces: 4
+			})
+		});
+		$('#save').click(function() {
+			$("#dialog_btn1").unbind("click");
+			$("#dialog").openModal({
+				complete: function() {
+					$('.lean-overlay').remove();
+				}
+			});
+			$("#dialog_btn1").click(function() {
+				Materialize.toast("保存成功", 2000);
+			});
+		});
+		$('#back').click(function() {
+			//TODO 返回键
+		})
+	</script>
 
 </html>
