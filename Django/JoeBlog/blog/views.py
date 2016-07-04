@@ -1,7 +1,30 @@
-from django.shortcuts import render_to_response
+from django import forms
+from django.contrib import auth
+from django.http import HttpResponse
+from django.shortcuts import render_to_response, render
 
 # Create your views here.
 from django.template import RequestContext
+
+from blog.forms import LoginForm
+
+
+def login(request):
+    if request.method == 'GET':
+        return render(request, 'ad/login.html')
+    else:
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = request.POST.get('username', '')
+            password = request.POST.get('password', '')
+            user = auth.authenticate(username=username, password=password)
+            if user is not None and user.is_active:
+                auth.login(request, user)
+                return HttpResponse('login successfully')
+            else:
+                return HttpResponse('password is wrong')
+        else:
+            return HttpResponse('user does not exist')
 
 
 def index(request):
