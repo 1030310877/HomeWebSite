@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}" media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="{% static "js/materialize.min.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "ad/css/admin.css" %}"/>
+    <title>后台管理</title>
+</head>
+
+<body>
+<div class="row blue darken-2">
+    <div class="col s12 m11 l11 blue darken-2">
+        <ul class="tabs blue darken-2" style="overflow-x: hidden;">
+            <li class="tab col s3 m3 l3"><a id="tab1" href="/blog" class="active white-text">博客</a></li>
+            <li class="tab col s3 m3 l3"><a id="tab2" href="/comments" class="white-text">留言</a></li>
+            <li class="tab col s3 m3 l3"><a id="tab3" href="#test3" class="white-text">统计</a></li>
+        </ul>
+    </div>
+
+    <div id="tab_content" class="col s12 m12 l12" style="background: white"></div>
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a href="/logout" class="btn-floating btn-large red waves-effect waves-light">
+            <i class="large material-icons">compare_arrows</i>
+        </a>
+    </div>
+</div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $('ul.tabs').tabs();
+        $('#tab1').click(function () {
+            $("#tab_content").load("blogs", function () {
+                jQuery.getScript("{% static "ad/js/admin_blog.js" %}")
+            });
+        });
+        $('#tab2').click(function () {
+            $("#tab_content").load("comments.html");
+        });
+        $("#tab_content").load("blogs", function () {
+            jQuery.getScript("{% static "ad/js/admin_blog.js" %}")
+        });
+    });
+</script>
+
+</html>

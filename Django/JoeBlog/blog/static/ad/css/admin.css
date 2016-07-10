@@ -1,0 +1,15 @@
+.blog-item {
+    border-bottom: 1px solid gainsboro;
+    padding: 8px 40px;
+}
+
+.handcursor {
+    cursor: pointer;
+}
+
+.blog-add {
+    width: 100%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 35px;
+}

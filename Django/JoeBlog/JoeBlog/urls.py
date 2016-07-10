@@ -23,5 +23,8 @@ urlpatterns = [
     url(r'^about', views.index),
     url(r'^comment', views.comment),
     url(r'^blogs', views.blog),
-    url(r'^login', views.login)
+    url(r'^login', views.login),
+    url(r'^logout$', views.logout),
+    url(r'^ad/admin', views.admin),
+    url(r'^ad/blogs', views.adblogs)
 ]

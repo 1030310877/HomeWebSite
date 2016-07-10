@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<ul class="collapsible" data-collapsible="expandable">
+    <li>
+        <div class="collapsible-header">
+            <i class="material-icons">list</i>
+            <span id="column1" data-columnId="1">栏目1</span>
+            <i class="material-icons right delete_column" data-column_id="1">delete</i>
+            <i class="material-icons right edit-column" data-column_id="1">mode_edit</i>
+        </div>
+        <div class="collapsible-body white">
+            <div class="valign-wrapper blog-item">
+                <i class="material-icons" style="margin-right: 20px;">description</i>
+                <span>Article 1</span>
+                <div style="margin-left: auto;">
+                    <i class="material-icons handcursor right delete_blog" data-blog_id="1"
+                       data-column_id="1">delete</i>
+                    <i class="material-icons handcursor right edit_blog" data-blog_id="1"
+                       data-column_id="1">mode_edit</i>
+                </div>
+            </div>
+            <div class="valign-wrapper blog-item">
+                <i class="material-icons" style="margin-right: 20px;">description</i>
+                <span>Article 2</span>
+                <div style="margin-left: auto;">
+                    <i class="material-icons handcursor right delete_blog" data-blog_id="2"
+                       data-column_id="1">delete</i>
+                    <i class="material-icons handcursor right edit_blog" data-blog_id="2"
+                       data-column_id="1">mode_edit</i>
+                </div>
+            </div>
+            <div class="valign-wrapper blog-item">
+                <i class="material-icons" style="margin-right: 20px;">description</i>
+                <span>Article 3</span>
+                <div style="margin-left: auto;">
+                    <i class="material-icons handcursor right delete_blog" data-blog_id="3"
+                       data-column_id="1">delete</i>
+                    <i class="material-icons handcursor right edit_blog" data-blog_id="3"
+                       data-column_id="1">mode_edit</i>
+                </div>
+            </div>
+            <div class="valign-wrapper center-align">
+                <i class="material-icons valign handcursor blog-add">note_add</i>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div id="add_column" class="center-align valign-wrapper">
+            <i class="medium material-icons valign handcursor" style="width: 100%;">playlist_add</i>
+        </div>
+    </li>
+</ul>
+
+<div id="dialog" class="modal">
+    <div class="modal-content">
+        <h4 id="dialog_title">提示</h4>
+        <p id="dialog_content">数据已经改变，是否保存？</p>
+    </div>
+    <div class="modal-footer">
+        <a id="dialog_btn1" href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">保存</a>
+        <a id="dialog_btn2" href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+    </div>
+</div>
+
+<div id="dialog_add_column" class="modal">
+    <div class="modal-content">
+        <div class="input-field">
+            <input id="dialog_input" type="text" class="validate">
+            <label for="dialog_input">输入栏目名</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a id="column_add_save" href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">保存</a>
+        <a id="column_add_cancel" href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+    </div>
+</div>
+
+</html>

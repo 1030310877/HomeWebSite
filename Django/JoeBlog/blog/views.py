@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib import auth
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, render
 
 # Create your views here.
@@ -20,11 +21,26 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user is not None and user.is_active:
                 auth.login(request, user)
-                return HttpResponse('login successfully')
+                return HttpResponse('success')
             else:
                 return HttpResponse('password is wrong')
         else:
             return HttpResponse('user does not exist')
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponse('已经注销')
+
+
+@login_required
+def admin(request):
+    return render(request, 'ad/admin.html')
+
+
+@login_required
+def adblogs(request):
+    return render(request, 'ad/blogs.html')
 
 
 def index(request):
