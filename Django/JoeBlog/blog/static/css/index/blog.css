@@ -17,11 +17,11 @@
 
 #article-content {
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(255, 255, 255, 0.98);
     margin-left: 240px;
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 10 px；
+    padding-top: 10px;
 }
 
 @media only screen and (max-width: 992px) {

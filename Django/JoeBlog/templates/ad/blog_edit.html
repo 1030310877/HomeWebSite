@@ -1,0 +1,147 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Include Font Awesome. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+
+    <!-- Include Editor style. -->
+    <link href="{% static "ad/css/froala_editor.min.css" %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static "ad/css/froala_style.min.css" %}" rel="stylesheet" type="text/css"/>
+
+    <!-- Include Code Mirror style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+
+    <!-- Include Editor Plugins style. -->
+    <link rel="stylesheet" href="{% static "ad/css/plugins/char_counter.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/code_view.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/colors.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/emoticons.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/file.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/fullscreen.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/image.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/image_manager.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/line_breaker.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/quick_insert.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/table.css" %}">
+    <link rel="stylesheet" href="{% static "ad/css/plugins/video.css" %}">
+
+    <!-- Include jQuery. -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+    <!-- Include JS files. -->
+    <script type="text/javascript" src="{% static "ad/js/froala_editor.min.js" %}"></script>
+
+    <!-- Include Code Mirror. -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+
+    <!-- Include Plugins. -->
+    <script type="text/javascript" src="{% static "ad/js/plugins/align.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/char_counter.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/code_beautifier.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/code_view.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/colors.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/emoticons.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/entities.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/file.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/font_family.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/font_size.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/fullscreen.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/image.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/image_manager.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/inline_style.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/line_breaker.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/link.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/lists.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/paragraph_format.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/paragraph_style.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/quick_insert.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/quote.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/table.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/save.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/url.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "ad/js/plugins/video.min.js" %}"></script>
+
+    <!-- Include Language file if we want to use it. -->
+    <!--<script type="text/javascript" src="js/languages/ro.js"></script>-->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}" media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="{% static "js/materialize.min.js" %}"></script>
+</head>
+
+<body>
+<div class="row container" style="margin-top: 20px;">
+    <div class="col s12 m12 l12">
+        <i id="back" class="small mdi-navigation-arrow-back fixed" style="cursor:pointer;"></i>
+    </div>
+    <div class="col s12 m3 l3 input-field">
+        <select>
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <label>所属栏目</label>
+    </div>
+    <div class="col s12 m6 l6 input-field">
+        <input placeholder="请输入标题" name="blog_title" type="text">
+        <label>标题</label>
+    </div>
+
+    <div class="col s12 m12 l12 input-field">
+        <textarea id="edit" name="blog_content" class="materialize-textarea"></textarea>
+    </div>
+
+    <a id="save" class="col s12 m12 l12 waves-effect waves-light btn" style="margin-top: 20px;">保存</a>
+</div>
+
+<div id="dialog" class="modal">
+    <div class="modal-content">
+        <h4 id="dialog_title">提示</h4>
+        <p id="dialog_content">是否保存当前文章？</p>
+    </div>
+    <div class="modal-footer">
+        <a id="dialog_btn1" class=" modal-action modal-close waves-effect waves-red btn-flat">保存</a>
+        <a id="dialog_btn2" class=" modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+    </div>
+</div>
+</body>
+<!-- Initialize the editor. -->
+<script>
+    var confirm = $('#dialog_btn1');
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+    $(function () {
+        $('#edit').froalaEditor({
+            tabSpaces: 4
+        })
+    });
+    $('#save').click(function () {
+        confirm.unbind("click");
+        $("#dialog").openModal({
+            complete: function () {
+                $('.lean-overlay').remove();
+            }
+        });
+        confirm.click(function () {
+            Materialize.toast("保存成功", 2000);
+        });
+    });
+    $('#back').click(function () {
+        //TODO 返回键
+    })
+</script>
+
+</html>

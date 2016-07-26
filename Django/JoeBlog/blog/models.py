@@ -6,7 +6,7 @@ from django.db import models
 
 class BlogColumn(models.Model):
     name = models.CharField(max_length=20, unique=True, null=False)
-    date = models.DateField()
+    date = models.DateField(auto_now=True)
 
 
 class Blog(models.Model):
@@ -14,5 +14,5 @@ class Blog(models.Model):
     title = models.CharField(max_length=20, null=False)
     author = models.CharField(max_length=20, null=True)
     content = models.TextField()
-    date = models.DateField()
+    date = models.DateField(auto_now=True)
     tags = models.TextField()

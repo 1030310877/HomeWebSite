@@ -25,6 +25,11 @@ urlpatterns = [
     url(r'^blogs', views.blog),
     url(r'^login', views.login),
     url(r'^logout$', views.logout),
-    url(r'^ad/admin', views.admin),
-    url(r'^ad/blogs', views.adblogs)
+    url(r'^ad/admin$', views.admin),
+    url(r'^ad/blogs$', views.adblogs),
+    url(r'^ad/blogs/addColumn$', views.addColumn),
+    url(r'^ad/blogs/deleteColumn$', views.deleteColumn),
+    url(r'^ad/blogs/renameColumn$', views.renameColumn),
+    url(r'^ad/blogs/editBlog$', views.editBlog),
+    url(r'^ad/blogs/deleteBlog$', views.deleteBlog)
 ]

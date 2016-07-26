@@ -18,3 +18,20 @@ class LoginForm(forms.Form):
             raise forms.ValidationError(u'username and password are required')
         else:
             cleaned_data = super(LoginForm, self).clean();
+
+
+class AddColumnForm(forms.Form):
+    name = forms.CharField(required=True)
+
+
+class RenameColumnForm(forms.Form):
+    columnId = forms.IntegerField(required=True)
+    newName = forms.CharField(max_length=20, required=True)
+
+
+class DeleteColumnForm(forms.Form):
+    columnId = forms.IntegerField(required=True)
+
+
+class DeleteBlogForm(forms.Form):
+    blogId = forms.IntegerField(required=True)
