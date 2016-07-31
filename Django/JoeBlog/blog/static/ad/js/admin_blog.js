@@ -6,12 +6,39 @@ $(function () {
 });
 function getCookie(name) {
     var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-    if (arr = document.cookie.match(reg))         return unescape(arr[2]); else         return null;
+    if (arr = document.cookie.match(reg))
+        return unescape(arr[2]);
+    else
+        return null;
 }
 
 $('.collapsible').collapsible({
     accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 });
+
+
+$('#add_column').click(function () {
+    $("#column_add_save").unbind("click");
+    $("#dialog_add_column").openModal({
+        complete: function () {
+            overlay.remove();
+        }
+    });
+    $('#dialog_input').focus();
+    $("#column_add_save").click(function () {
+        var name = $('#dialog_input').val();
+        $.post("blogs/addColumn",
+            {
+                name: name
+            }, function (data) {
+                Materialize.toast(data, 1000, '', function () {
+                    if (data == "success") {
+                        window.location.reload()
+                    }
+                });
+            });
+    });
+})
 
 $('.edit-column').click(function () {
     var num = $(this).data("column_id");
@@ -82,7 +109,16 @@ $('.delete_column').click(function () {
 });
 
 $(".blog-add").click(function () {
+    var type = "add";
+    var column_id = $(this).data("column_id");
+    location.href = "blogs/editBlog?type=" + type + "&column_id=" + column_id;
+});
 
+$(".edit_blog").click(function () {
+    var type = "edit";
+    var column_id = $(this).data("column_id");
+    var blog_id = $(this).data("blog_id");
+    location.href = "blogs/editBlog?type=" + type + "&column_id=" + column_id + "&blog_id=" + blog_id;
 });
 
 $(".delete_blog").click(function () {
@@ -123,27 +159,3 @@ function dialog_show(title, content, btn1, btn2) {
     $("#dialog_btn1").text(btn1);
     $("#dialog_btn2").text(btn2);
 };
-
-$('#add_column').click(function () {
-    $("#column_add_save").unbind("click");
-    $("#dialog_add_column").openModal({
-        complete: function () {
-            overlay.remove();
-        }
-    });
-    $('#dialog_input').focus();
-    $("#column_add_save").click(function () {
-        var name = $('#dialog_input').val();
-        alert(name);
-        $.post("blogs/addColumn",
-            {
-                name: name
-            }, function (data) {
-                Materialize.toast(data, 1000, '', function () {
-                    if (data == "success") {
-                        window.location.reload()
-                    }
-                });
-            });
-    });
-})

@@ -31,5 +31,6 @@ urlpatterns = [
     url(r'^ad/blogs/deleteColumn$', views.deleteColumn),
     url(r'^ad/blogs/renameColumn$', views.renameColumn),
     url(r'^ad/blogs/editBlog$', views.editBlog),
-    url(r'^ad/blogs/deleteBlog$', views.deleteBlog)
+    url(r'^ad/blogs/deleteBlog$', views.deleteBlog),
+    url(r'^ad/blogs/save$', views.saveBlog)
 ]

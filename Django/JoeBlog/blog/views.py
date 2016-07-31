@@ -1,10 +1,12 @@
+from datetime import date
+
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render
 
 # Create your views here.
-from blog.forms import LoginForm, RenameColumnForm, DeleteBlogForm, DeleteColumnForm, AddColumnForm
+from blog.forms import LoginForm, RenameColumnForm, DeleteBlogForm, DeleteColumnForm, AddColumnForm, SaveBlogForm
 from blog.models import BlogColumn, Blog
 
 
@@ -66,9 +68,51 @@ def deleteBlog(request):
                 return HttpResponse("failed, blog does not exist")
 
 
+@login_required
 def editBlog(request):
     if request.method == 'GET':
-        return render(request, 'ad/blog_edit.html')
+        context = {}
+        type = request.GET.get('type')
+        context['type'] = type
+        column_id = request.GET.get('column_id')
+        context['column_id'] = int(column_id)
+        columns = BlogColumn.objects.all()
+        context['columns'] = columns
+        blog_id = request.GET.get('blog_id')
+        if blog_id is not None:
+            context['blog_id'] = int(blog_id)
+            blog_title = Blog.objects.get(id=blog_id).title
+            context['blog_title'] = blog_title
+            blog_content = Blog.objects.get(id=blog_id).content
+            context['blog_content'] = blog_content
+        return render_to_response('ad/blog_edit.html', context)
+
+
+def saveBlog(request):
+    if request.is_ajax() and request.method == 'POST':
+        form = SaveBlogForm(request.POST)
+        if form.is_valid():
+            columnId = form.cleaned_data['column_id']
+            blogId = form.cleaned_data['blog_id']
+            blogTitle = form.cleaned_data['blog_title']
+            blogContent = form.cleaned_data['blog_content']
+            try:
+                blog = Blog.objects.get(id=blogId)
+            except Exception as error:
+                blog = None
+            if blog is not None:
+                blog.title = blogTitle
+                blog.column_id = BlogColumn.objects.get(id=columnId)
+                blog.content = blogContent
+                blog.date = date.today()
+                blog.save()
+            else:
+                column = BlogColumn.objects.get(id=columnId)
+                Blog.objects.create(title=blogTitle, column_id=column, content=blogContent)
+            return HttpResponse("success")
+        else:
+            return HttpResponse("data is invalid")
+    return HttpResponse("not support request method")
 
 
 def addColumn(request):
