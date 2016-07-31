@@ -177,8 +177,14 @@ def comment(request):
 
 def blog(request):
     context = {"checkItem": 2, "title": "博客"}
-    blogsCategory = [{"id": 1, "name": "栏目1"}, {"id": 2, "name": "栏目2"}]
-    blogs = [{"title": "title1"}, {"title": "title2"}, {"title": "title3"}]
-    context["category"] = blogsCategory
-    context["blogs"] = blogs
+    columns = BlogColumn.objects.all()
+    blogs = Blog.objects.all()
+    context['columns'] = columns
+    context['blogs'] = blogs
     return render_to_response('blogs.html', context)
+
+
+def getBlog(request):
+    blog_id = request.GET.get('blog_id')
+    blog = Blog.objects.get(id=blog_id)
+    return HttpResponse(blog.content)

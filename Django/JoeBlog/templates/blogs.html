@@ -133,15 +133,17 @@
 
 {% block content %}
     <ul class="collapsible popout" data-collapsible="expandable">
-        {% for item in category %}
+        {% for column in columns %}
             <li>
-                <div class="collapsible-header"><i class="material-icons">list</i>{{ item.name }}</div>
+                <div class="collapsible-header"><i class="material-icons">list</i>{{ column.name }}</div>
                 <div class="collapsible-body white">
-                    {% for article in blogs %}
-                        <div class="left-align valign-wrapper blog-item">
-                            <i class="material-icons" style="margin-right: 40px;">description</i><a
-                                class="blog-article fillwidth" href="#!">{{ article.title }}</a>
-                        </div>
+                    {% for blog in blogs %}
+                        {% if blog.column_id == column %}
+                            <div class="left-align valign-wrapper blog-item" data-blog_id="{{ blog.id }}">
+                                <i class="material-icons" style="margin-right: 40px;">description</i>
+                                <a id="blog{{ blog.id }}" class="blog-article fillwidth">{{ blog.title }}</a>
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </li>
@@ -153,27 +155,34 @@
     <div id="article-detail" class="fillwidth fillheight article-detail-hidden">
         <div class="fillheight left" id="article-content">
             <i class="small mdi-navigation-arrow-back black-text fixed" style="cursor:pointer;"></i>
-            <div class="fillheight" style="overflow: auto;">
-                <h1 class="black-text">this is title</h1>
-                <p class="black-text">this is content</p>
+            <div id="content" class="fillheight" style="overflow: auto;">
+                <h4 id="blog_title" class="center"></h4>
+                <div id="blog_content">
+                </div>
             </div>
         </div>
     </div>
 {% endblock %}
 
 {% block javascript %}
+    <script src="{% static "js/csrf.js" %}" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.button-collapse').sideNav()
+            $('.button-collapse').sideNav();
             $('.collapsible').collapsible({
                 accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
             });
             $('.blog-item').click(function () {
+                var blog_id = $(this).data("blog_id");
+                var temp = '#blog' + blog_id;
+                var title = $(temp).text();
+                $('#blog_title').text(title);
                 $('#article-detail').removeClass("article-detail-hidden").addClass("article-detail-show");
-            })
+                $('#blog_content').load('blogs/getblog?blog_id=' + blog_id);
+            });
             $('.mdi-navigation-arrow-back').click(function () {
                 $('#article-detail').removeClass("article-detail-show").addClass("article-detail-hidden");
-            })
+            });
         })
     </script>
 {% endblock %}
