@@ -129,6 +129,8 @@
 {% load staticfiles %}
 {% block staticFile %}
     <link rel="stylesheet" href="{% static "css/index/blog.css" %}"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/dracula.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -178,7 +180,11 @@
                 var title = $(temp).text();
                 $('#blog_title').text(title);
                 $('#article-detail').removeClass("article-detail-hidden").addClass("article-detail-show");
-                $('#blog_content').load('blogs/getblog?blog_id=' + blog_id);
+                $('#blog_content').load('blogs/getblog?blog_id=' + blog_id, function () {
+                    $('pre').each(function (i, block) {
+                        hljs.highlightBlock(block);
+                    });
+                });
             });
             $('.mdi-navigation-arrow-back').click(function () {
                 $('#article-detail').removeClass("article-detail-show").addClass("article-detail-hidden");

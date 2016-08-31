@@ -19,19 +19,20 @@ from blog import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index),
     url(r'^index', views.index),
     url(r'^about', views.index),
     url(r'^comment', views.comment),
     url(r'^blogs$', views.blog),
-    url(r'^blogs/getblog$', views.getBlog),
+    url(r'^blogs/getblog$', views.get_blog),
     url(r'^login', views.login),
     url(r'^logout$', views.logout),
     url(r'^ad/admin$', views.admin),
     url(r'^ad/blogs$', views.adblogs),
-    url(r'^ad/blogs/addColumn$', views.addColumn),
-    url(r'^ad/blogs/deleteColumn$', views.deleteColumn),
-    url(r'^ad/blogs/renameColumn$', views.renameColumn),
-    url(r'^ad/blogs/editBlog$', views.editBlog),
-    url(r'^ad/blogs/deleteBlog$', views.deleteBlog),
-    url(r'^ad/blogs/save$', views.saveBlog)
+    url(r'^ad/blogs/addColumn$', views.add_column),
+    url(r'^ad/blogs/deleteColumn$', views.delete_column),
+    url(r'^ad/blogs/renameColumn$', views.rename_column),
+    url(r'^ad/blogs/editBlog$', views.edit_blog),
+    url(r'^ad/blogs/deleteBlog$', views.delete_blog),
+    url(r'^ad/blogs/save$', views.save_blog)
 ]

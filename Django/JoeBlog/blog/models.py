@@ -16,3 +16,9 @@ class Blog(models.Model):
     content = models.TextField()
     date = models.DateField(auto_now=True)
     tags = models.TextField()
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=20, null=False)
+    message = models.TextField(null=False)
+    date = models.DateField(auto_now=True)
